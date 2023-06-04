@@ -32,5 +32,6 @@ cp sennheiser-gsp670-input-comm.conf %{buildroot}}/usr/share/alsa-card-profile/m
 /usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-input-comm.conf
 
 %requires
+BuildRequires: git
 Requires: kernel >= 5.15.0
 Requires: pulseaudio | pipewire-pulseaudio
