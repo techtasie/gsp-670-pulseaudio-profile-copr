@@ -14,21 +14,27 @@ Linux kernel 5.15 and newer should support the dongle with updated firmware. Pip
 
 %prep
 # Initialize the submodule
-git clone https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile.git %{buildroot}/sennheiser-gsp670-pulseaudio-profile
-cd %{buildroot}/sennheiser-gsp670-pulseaudio-profile
+git clone https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile.git %{_sourcedir}/sennheiser-gsp670-pulseaudio-profile
+cd %{_sourcedir}/sennheiser-gsp670-pulseaudio-profile
 
 %install
 
-cp 91-pulseaudio-sennheiser-gsp670.rules %{buildroot}}/etc/udev/rules.d/
-cp sennheiser-gsp670-usb-audio.conf %{buildroot}}/usr/share/alsa-card-profile/mixer/profile-sets/
-cp sennheiser-gsp670-output-main.conf %{buildroot}}/usr/share/alsa-card-profile/mixer/paths/
-cp sennheiser-gsp670-output-comm.conf %{buildroot}}/usr/share/alsa-card-profile/mixer/paths/
-cp sennheiser-gsp670-input-comm.conf %{buildroot}}/usr/share/alsa-card-profile/mixer/paths/
+cd %{_sourcedir}/sennheiser-gsp670-pulseaudio-profile
+
+mkdir -p %{_sysconfdir}/udev/rules.d/
+mkdir -p %{_datarootdir}/alsa-card-profile/mixer/profile-sets/
+mkdir -p %{_datarootdir}/alsa-card-profile/mixer/paths/
+
+cp 91-pulseaudio-sennheiser-gsp670.rules %{_sysconfdir}/udev/rules.d/
+cp sennheiser-gsp670-usb-audio.conf %{_datarootdir}/alsa-card-profile/mixer/profile-sets/
+cp sennheiser-gsp670-output-main.conf %{_datarootdir}/alsa-card-profile/mixer/paths/
+cp sennheiser-gsp670-output-comm.conf %{_datarootdir}/alsa-card-profile/mixer/paths/
+cp sennheiser-gsp670-input-comm.conf %{_datarootdir}/alsa-card-profile/mixer/paths/
 
 %files
 %defattr(-,root,root,-)
-/etc/udev/rules.d/91-pulseaudio-sennheiser-gsp670.rules
-/usr/share/alsa-card-profile/mixer/profile-sets/sennheiser-gsp670-usb-audio.conf
-/usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-main.conf
-/usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-comm.conf
-/usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-input-comm.conf
+%{_sysconfdir}/udev/rules.d/91-pulseaudio-sennheiser-gsp670.rules
+%{_datarootdir}/alsa-card-profile/mixer/profile-sets/sennheiser-gsp670-usb-audio.conf
+%{_datarootdir}/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-main.conf
+%{_datarootdir}/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-comm.conf
+%{_datarootdir}/alsa-card-profile/mixer/paths/sennheiser-gsp670-input-comm.conf
