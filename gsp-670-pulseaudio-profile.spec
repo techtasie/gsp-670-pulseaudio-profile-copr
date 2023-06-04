@@ -29,3 +29,8 @@ cp sennheiser-gsp670-input-comm.conf %{buildroot}}/usr/share/alsa-card-profile/m
 /usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-main.conf
 /usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-output-comm.conf
 /usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-input-comm.conf
+
+%requires
+%if %{?kernel_version} < 5.15.0
+Requires: kernel >= 5.15.0
+%endif
