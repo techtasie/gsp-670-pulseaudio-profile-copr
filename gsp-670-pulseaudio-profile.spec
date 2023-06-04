@@ -6,7 +6,6 @@ Epoch:          1
 Summary:        PulseAudio profile for the Sennheiser GSP 670 wireless gaming headset 
 License:        MIT
 URL:            https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile
-Requires:       pulseaudio | pipewire-pulseaudio
 BuildArch: noarch
 
 %description
@@ -33,6 +32,5 @@ cp sennheiser-gsp670-input-comm.conf %{buildroot}}/usr/share/alsa-card-profile/m
 /usr/share/alsa-card-profile/mixer/paths/sennheiser-gsp670-input-comm.conf
 
 %requires
-%if %{?kernel_version} < 5.15.0
 Requires: kernel >= 5.15.0
-%endif
+Requires: pulseaudio | pipewire-pulseaudio
