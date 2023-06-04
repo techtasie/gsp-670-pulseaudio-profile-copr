@@ -8,7 +8,7 @@ URL:            https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile
 BuildArch: noarch
 BuildRequires: git
 Requires: kernel >= 5.15.0
-Requires: pulseaudio|pipewire-pulseaudio
+Requires: pulseaudio, pipewire-pulseaudio
 
 %description
 Linux kernel 5.15 and newer should support the dongle with updated firmware. PipeWire 0.3.38 or newer should have the required audio profiles. PulseAudio 16.0 or newer should have the required audio profiles.
