@@ -14,7 +14,8 @@ Linux kernel 5.15 and newer should support the dongle with updated firmware. Pip
 
 %prep
 # Initialize the submodule
-git submodule init
+git clone https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile.git %{buildroot}/sennheiser-gsp670-pulseaudio-profile
+cd sennheiser-gsp670-pulseaudio-profile
 
 %install
 
