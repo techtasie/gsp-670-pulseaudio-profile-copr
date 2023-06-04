@@ -1,3 +1,4 @@
+%undefine _arch
 Name:           gsp-670-pulse 
 Version:        1.2
 Release:        1
@@ -6,6 +7,7 @@ Summary:        PulseAudio profile for the Sennheiser GSP 670 wireless gaming he
 License:        MIT
 URL:            https://github.com/szszoke/sennheiser-gsp670-pulseaudio-profile
 Requires:       pulseaudio | pipewire-pulseaudio
+BuildArch: noarch
 
 %description
 Linux kernel 5.15 and newer should support the dongle with updated firmware. PipeWire 0.3.38 or newer should have the required audio profiles. PulseAudio 16.0 or newer should have the required audio profiles.
